@@ -14,8 +14,8 @@ namespace MinecraftServerStats
 
     class Program
     {
-        private static readonly string StatsDirectory = @"C:\Users\shiva\Downloads\stats";
-        private static readonly string UuidMapFile = @"C:\Users\shiva\Downloads\stats\uuid_map.txt";
+        private static readonly string StatsDirectory = "./";
+        private static readonly string UuidMapFile = "uuid_map.txt";
 
         private static Dictionary<string, string> GetUuidUsernameMap()
         {
@@ -63,9 +63,7 @@ namespace MinecraftServerStats
 
             foreach (var (username, stats) in usernameStatsMap)
             {
-                // var value = stats.PlayTime.TotalHours;
-                var value = stats.NumDeaths;
-                Console.WriteLine($"{username},{value}");
+                Console.WriteLine($"{username},{stats.PlayTime.TotalHours},{stats.NumDeaths}");
             }
         }
     }
